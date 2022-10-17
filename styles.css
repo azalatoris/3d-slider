@@ -20,11 +20,11 @@ body {
   height: var(--scroll-length);
 }
 
-#slider-3d {
+#scene-3d {
   border: 4px solid blue;
   height: 100vh;
 }
 
-li {
+.scene-frame {
   border: 3px solid green;
 }
