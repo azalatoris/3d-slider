@@ -8,11 +8,16 @@ ul, li {
   list-style: none;
 }
 
+:root {
+  --scroll-length-const: 4;
+  --scroll-length: calc(var(--scroll-length-const)*100vh);
+}
+
 body {
   font-family: sans-serif;
 
   border: 5px solid red;
-  height: 100vh;
+  height: var(--scroll-length);
 }
 
 ul {
