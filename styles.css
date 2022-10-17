@@ -7,3 +7,18 @@
 ul, li {
   list-style: none;
 }
+
+body {
+  font-family: sans-serif;
+
+  border: 5px solid red;
+  height: 100vh;
+}
+
+ul {
+  border: 4px solid blue;
+}
+
+li {
+  border: 3px solid green;
+}
