@@ -20,6 +20,11 @@ body {
   height: var(--scroll-length);
 }
 
+.sceneDebugger {
+  perspective-origin: 300% -200%;
+  transform: rotateX(45deg) rotateY(45deg) rotateZ(0deg) scale(0.5);
+}
+
 #scene-3d {
   border: 14px solid rgb(176, 227, 174);
   position: fixed;
