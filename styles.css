@@ -21,7 +21,7 @@ body {
 }
 
 .sceneDebugger {
-  perspective-origin: 300% -200%;
+  perspective-origin: 300% -100%;
   transform: rotateX(45deg) rotateY(45deg) rotateZ(0deg) scale(0.5);
 }
 
