@@ -8,7 +8,7 @@ window.on = window.addEventListener
 
 const frameDistance = 100
 
-let scena, frames;
+let scene, frames;
 
 const setupInitialFramesPosition = () => {
   frames.forEach((frame, frameIndex) => {
@@ -25,10 +25,14 @@ const setupInitialFramesPosition = () => {
 window.on('load', () => {
   console.log('Page is loaded')
 
-  scena = $('scene-3d')
+  scene = $('scene-3d')
   frames = $$('.scene-frame')
 
   setupInitialFramesPosition()
+
+  setTimeout(() => {
+    window.scrollTo({ top: 1 })
+  }, 10)  
 })
 
 // Page onscroll
