@@ -21,28 +21,30 @@ const setupInitialFramesPosition = () => {
   });
 }
 
+const framesPrescroll = () => {
+  setTimeout(() => {
+    window.scrollTo({ top: 1 })
+  }, 10)  
+}
 // Page onload
 window.on('load', () => {
   console.log('Page is loaded')
 
-  scene = $('scene-3d')
+  scene = $('#scene-3d')
   frames = $$('.scene-frame')
 
   setupInitialFramesPosition()
-
-  setTimeout(() => {
-    window.scrollTo({ top: 1 })
-  }, 10)  
+  framesPrescroll()
 })
 
+const setSceneScrollPosition = (scrollPosition) => {
+  scene.style.setProperty(
+    '--scroll-position',
+    `${scrollPosition}px`
+  )
+}
 // Page onscroll
 window.on('scroll', () => {
   const scrollPosition = document.documentElement.scrollTop
-  
-  frames.forEach((frame) => {
-    frame.style.setProperty(
-      '--scroll-position',
-      `${scrollPosition}px`
-    )
-  });
+  setSceneScrollPosition(scrollPosition)
 })
