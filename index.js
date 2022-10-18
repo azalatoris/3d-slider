@@ -6,12 +6,39 @@ window.on = window.addEventListener
 
 // 3D Slider Implementation
 
-// TODO
+const frameDistance = 100
+
+let scena, frames;
+
+const setupInitialFramesPosition = () => {
+  frames.forEach((frame, frameIndex) => {
+    const startFramePosition = -(frameIndex * frameDistance)
+
+    frame.style.setProperty(
+      '--start-frame-position',
+      `${startFramePosition}px`
+    )
+  });
+}
 
 // Page onload
 window.on('load', () => {
   console.log('Page is loaded')
 
-  console.log($('body'))
-  console.log($$('.scene-frame'))
+  scena = $('scene-3d')
+  frames = $$('.scene-frame')
+
+  setupInitialFramesPosition()
+})
+
+// Page onscroll
+window.on('scroll', () => {
+  const scrollPosition = document.documentElement.scrollTop
+  
+  frames.forEach((frame) => {
+    frame.style.setProperty(
+      '--scroll-position',
+      `${scrollPosition}px`
+    )
+  });
 })
