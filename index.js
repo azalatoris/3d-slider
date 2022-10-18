@@ -1,3 +1,5 @@
+const { throttle, debounce } = throttleDebounce
+
 // 3D Slider Implementation
 
 const frameDistance = 100
@@ -16,10 +18,13 @@ window.on('load', () => {
   framesPrescroll()
 })
 
-// Page onscroll
-window.on('scroll', () => {
+const scrollHandler = () => {
+  console.log("Scroll")
   const scrollPosition = document.documentElement.scrollTop
   const correctedScrollPosition = proportionalPageScrollPosition(scrollPosition, fullSliderLength)
-
+  
   setSceneScrollPosition(scene, correctedScrollPosition)
-})
+}
+
+// Page onscroll
+window.on('scroll', throttle(100, scrollHandler) ) 
