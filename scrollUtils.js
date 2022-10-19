@@ -18,11 +18,20 @@ const scrollMaxValue = () => {
   return documentHeight - windowHeight;
 }
 
-//fullSliderLength = frameDistance * (frames.length - 1)
-const proportionalPageScrollPosition = (currentScrollPosition, fullSliderLength) => {
+const getScrollProportion = () => {
   const fullScrollLength = scrollMaxValue()
   const scrollProportion = fullSliderLength / fullScrollLength
-  const correctedScrollPosition = currentScrollPosition * scrollProportion
+  return scrollProportion
+}
+
+const calcScrollValues = (fullSliderLength) => { 
+  const scrollPosition = document.documentElement.scrollTop
+  const scrollProportion = getScrollProportion(fullSliderLength)
+  const correctedScrollPosition = scrollPosition * scrollProportion
   
-  return correctedScrollPosition
+  return {
+    scrollPosition: scrollPosition,
+    scrollProportion: scrollProportion,
+    correctedScrollPosition: correctedScrollPosition
+  }
 }
