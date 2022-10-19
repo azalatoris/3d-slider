@@ -2,7 +2,7 @@ const { throttle, debounce } = throttleDebounce
 
 // 3D Slider Implementation
 
-const frameDistance = 100
+const FRAME_DISTANCE = 1000
 
 let scene, frames, fullSliderLength;
 
@@ -12,16 +12,16 @@ window.on('load', () => {
 
   scene = $('#scene-3d')
   frames = $$('.scene-frame')
-  fullSliderLength = frameDistance * (frames.length - 1)
+  fullSliderLength = FRAME_DISTANCE * (frames.length - 1)
 
-  setupInitialFramesPosition(frames, frameDistance)
+  setupInitialFramesPosition(frames, FRAME_DISTANCE)
   framesPrescroll()
 
   // Page onscroll
   window.on('scroll', 
     throttle(
       100, 
-      scrollModule(scene, fullSliderLength).scrollHandler
+      scrollModule(scene, frames, fullSliderLength).scrollHandler
     )
   ) 
 })

@@ -55,8 +55,8 @@ body {
   font-size: 50px;
 
   transform-style: preserve-3d;
-  /* transition: transform 500ms cubic-bezier(0.090, 0.695, 0.345, 0.925); */
-
+  transition: transform 500ms cubic-bezier(0.090, 0.695, 0.345, 0.925),
+              opacity 500ms cubic-bezier(0.090, 0.695, 0.345, 0.925);
   transform: translateZ(
     calc(
       var(--start-frame-position) + 
